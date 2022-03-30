@@ -50,8 +50,8 @@ for fldr in subfolders:
         img = cv2.imread(fileFullPath,cv2.IMREAD_COLOR)
         resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
         if (i < trainCount):
-            cv2.imwrite(os.path.join(newTrainPath,os.path.basename(fldr) + "_" + str(i) + "train" + ext),resized)
+            cv2.imwrite(os.path.join(newTrainPath,os.path.basename(fldr) + str(i) + ext),resized)
         elif (i < trainCount + testCount):
-            cv2.imwrite(os.path.join(newTestPath,os.path.basename(fldr) + "_" + str(i - trainCount) + "test" + ext),resized)
+            cv2.imwrite(os.path.join(newTestPath,os.path.basename(fldr) + str(i - trainCount) + ext),resized)
         else:
-            cv2.imwrite(os.path.join(newValidPath,os.path.basename(fldr) + "_" + str(i - trainCount - testCount) + "valid" + ext),resized)
+            cv2.imwrite(os.path.join(newValidPath,os.path.basename(fldr) + str(i - trainCount - testCount) + ext),resized)
